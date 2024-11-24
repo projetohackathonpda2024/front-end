@@ -1,12 +1,15 @@
-import HotelForm from "./components/forms";
-import Search from "./components/search";
+import Header from "./components/hearder";
+import Router from "./routes/router";
+
 
 const App = () => {
   return (
-    <div>
-      <Search />
-      <HotelForm/>
-    </div>
+    <>
+      <Header />
+      <section>
+        <Router />
+      </section>
+    </>
   );
 };
 
