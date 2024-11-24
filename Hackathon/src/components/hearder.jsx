@@ -14,13 +14,13 @@ import { Search, AddCircle } from "@mui/icons-material";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#009EFB", // Onfly-Colors-1-hex
+      main: "#1F6391", 
     },
     secondary: {
-      main: "#FF5A05", // Onfly-Colors-4-hex
+      main: "#FF5A05", 
     },
     background: {
-      default: "#FFFFFF", // Onfly-Colors-5-hex
+      default: "#FFFFFF", 
     },
   },
   typography: {
@@ -36,7 +36,7 @@ const Header = () => {
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             {/* Ícone de Pesquisa */}
-            <IconButton color="inherit" component={Link} to="/">
+            <IconButton color="inherit" component={Link} to="/pesquisa">
               <Search />
             </IconButton>
             <Typography variant="h6" sx={{ marginLeft: 1 }}>
@@ -52,9 +52,9 @@ const Header = () => {
               to="/cadastro"
               sx={{
                 marginLeft: 2,
-                backgroundColor: "#FF5A05", // Onfly-Colors-4-hex
+                backgroundImage: "linear-gradient(to bottom,#267FFA, #009EFB)",  // Onfly-Colors-4-hex
                 "&:hover": {
-                  backgroundColor: "#F4F8FF", // Onfly-Colors-8-hex
+                  backgroundImage: "linear-gradient(to bottom,#d53d0c, #FF5A05)"// Onfly-Colors-8-hex
                 },
               }}
             >

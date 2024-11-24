@@ -1,11 +1,12 @@
-import Header from "./components/hearder";
+import Hearder from "./components/hearder";
 import Router from "./routes/router";
+
 
 
 const App = () => {
   return (
     <>
-      <Header />
+      <Hearder />
       <section>
         <Router />
       </section>
