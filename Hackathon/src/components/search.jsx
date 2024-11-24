@@ -151,7 +151,7 @@ const Search = () => {
       hotel.name.toLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredHotels(filterResults);
-  }, [searchValue, hotels]);
+  }, [searchValue]);
 
   const handleChangeSearch = (event) => {
     setSearchValue(event.target.value);

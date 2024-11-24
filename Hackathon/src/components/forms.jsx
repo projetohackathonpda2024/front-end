@@ -33,12 +33,40 @@ const HotelForm = () => {
 
   return (
     <Container maxWidth="md">
-      <Box sx={{ mt: 4 }}>
-        <Typography variant="h4" align="center" gutterBottom>
+        <Box
+        sx={{
+          justifyContent: "center",
+          height: "100vh",
+          display: "flex",
+          backgroundColor: "#192A3D", 
+          alignItems: "center",
+          flexDirection: "column",
+          padding: 6
+        }}
+      >
+      <Box sx={{
+            backgroundColor: "#fff", 
+            padding: 4, 
+            borderRadius: 2, 
+          }}
+          >
+
+        <Typography 
+           variant="h4"
+           align="center"
+           gutterBottom
+            sx={{
+              mb: 2,
+              color: "#3A4F66", 
+            }}
+            >
+
           Cadastro de Hotel
+
         </Typography>
+
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             {/* Nome */}
             <Grid item xs={12}>
               <TextField
@@ -47,6 +75,14 @@ const HotelForm = () => {
                 {...register("name", { required: "Nome é obrigatório" })}
                 error={!!errors.name}
                 helperText={errors.name?.message}
+                sx={{
+                  "& .MuiInputLabel-root": { color: "#808080" }, // Cor da label
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "#ccc", // Cor da borda do input
+                    },
+                  },
+                }}
               />
             </Grid>
 
@@ -58,6 +94,12 @@ const HotelForm = () => {
                 {...register("type", { required: "Tipo é obrigatório" })}
                 error={!!errors.type}
                 helperText={errors.type?.message}
+                sx={{
+                  "& .MuiInputLabel-root": { color: "#808080" },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": { borderColor: "#ccc" },
+                  },
+                }}
               />
             </Grid>
 
@@ -159,12 +201,23 @@ const HotelForm = () => {
                 variant="contained"
                 color="primary"
                 fullWidth
+                sx={{
+                  borderRadius: 8, // Bordas arredondadas
+                  backgroundColor: "#3A4F66", // Cor primária
+                  paddingX: 4,
+                  paddingY: 1,
+                  color: "#fff", // Texto branco
+                  "&:hover": {
+                    backgroundColor: "#1F6391", // Cor ao passar o mouse
+                  },
+                }}
               >
                 Cadastrar Hotel
               </Button>
             </Grid>
           </Grid>
         </form>
+      </Box>
       </Box>
     </Container>
   );
