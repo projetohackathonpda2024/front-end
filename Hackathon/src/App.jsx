@@ -1,14 +1,16 @@
-import Header from "./components/hearder";
+
+import Layout from "./components/layot";
 import Router from "./routes/router";
 
 
 const App = () => {
   return (
     <>
-      <Header />
-      <section>
-        <Router />
-      </section>
+      <Layout>
+        <section>
+          <Router />
+        </section>
+      </Layout>
     </>
   );
 };
