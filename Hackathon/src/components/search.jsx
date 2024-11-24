@@ -12,7 +12,7 @@ import ListItem from "@mui/material";
 
 const Search = () => {
      const [searchValue, setSearchValue] = useState();
-     const [items] = useState ([React, List, Box, TextField, listItemText, ListItem]);
+     const [items] = useState (["arcane", "visconde", "atlantis", "avada cadabra", "harry potter", "jogos vorazes"]);
     
      const filterItems = items.filter ((item =>
         item.toLowerCase().includes(searchValue.toLowerCase())
