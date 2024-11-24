@@ -1,55 +1,75 @@
-import React from "react";
+
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material";
-import List from "@mui/material";
-import Box from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { List, Box, ListItem, TextField, ListItemText } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
-import listItemText from "@mui/material";
-import ListItem from "@mui/material";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#3f51b5",
+    },
+    secondary: {
+      main: "#f50057",
+    },
+  },
+  typography: {
+    fontFamily: "Roboto",
+    fontSize: 14,
+  },
+});
 
 const Search = () => {
-     const [searchValue, setSearchValue] = useState();
-     const [items] = useState (["arcane", "visconde", "atlantis", "avada cadabra", "harry potter", "jogos vorazes"]);
-    
-     const filterItems = items.filter ((item =>
-        item.toLowerCase().includes(searchValue.toLowerCase())
-     ));
+  const [searchValue, setSearchValue] = useState("");
+  const [items] = useState([
+    "arcane",
+    "visconde",
+    "atlantis",
+    "avada cadabra",
+    "harry potter",
+    "jogos vorazes",
+  ]);
 
-     const handleChangeSearch = (event) => {
-        setSearchValue(event.target.value);
-      };
+  const filterItems = items.filter((item) =>
+    item.toLowerCase().includes(searchValue.toLowerCase(""))
+  );
 
+  const handleChangeSearch = (event) => {
+    setSearchValue(event.target.value);
+  };
 
-    return ( 
-      <Box sx={{}}>
-          <TextField
+  return (
+    <ThemeProvider theme={theme}>
+      <Box sx={{ backgroundColor: "#f5f5f5", padding: 2 }}>
+        <TextField
           label="Search"
           variant="outlined"
           value={searchValue}
           onChange={handleChangeSearch}
+          sx={{
+            width: "100%",
+            marginBottom: 2,
+          }}
         />
+
+        <List>
+          {filterItems.map((item, index) => (
+            <ListItem key={index}>
+              <ListItemText primary={item} />
+            </ListItem>
+          ))}
+        </List>
 
         <Stack direction="row" spacing={2}>
           <Button variant="contained" endIcon={<SendIcon />}>
             Send
           </Button>
         </Stack>
-
-          <List>
-            {filterItems.map((item, index) => (
-              <ListItem key={index}>
-                <listItemText primary={item} />
-              </ListItem>
-            ))}
-          </List>
       </Box>
-     );
-}
+    </ThemeProvider>
+  );
+};
 
- 
-export default Search; 
-
-
+export default Search;

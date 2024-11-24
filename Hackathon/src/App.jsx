@@ -1,15 +1,11 @@
-import { useState } from 'react'
-import Search from './components/search';
+import Search from "./components/search";
 
-function App =() 
-
+const App = () => {
   return (
-
-      <div>
+    <div>
       <Search />
-      </div>
-
-  )
+    </div>
+  );
 };
 
-export default App
+export default App;
