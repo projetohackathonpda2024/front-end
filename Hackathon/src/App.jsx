@@ -7,7 +7,6 @@ import Hearder from "./components/hearder";
 const App = () => {
   return (
     <>
-     <Hearder />
       <Layout>
         <section>
           <Router />

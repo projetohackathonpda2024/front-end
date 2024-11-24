@@ -5,7 +5,7 @@ import Home from "../pages/home";
 
 const Router = () => {
     return (
-      <>
+      <> 
 
           <Routes>
             <Route path="/" element={< Home/>} />
@@ -16,3 +16,5 @@ const Router = () => {
       </>
     )
   }
+
+export default Router;

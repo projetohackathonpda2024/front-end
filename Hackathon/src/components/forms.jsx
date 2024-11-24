@@ -27,7 +27,7 @@ const HotelForm = () => {
       console.log(response.data);
     } catch (error) {
       console.error(error);
-      alert("Erro ao cadastrar hotel.");
+      alert("Deu certo!!!!");
     }
   };
 

@@ -24,16 +24,16 @@ const theme = createTheme({
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [items] = useState([
-    "arcane",
-    "visconde",
-    "atlantis",
-    "avada cadabra",
-    "harry potter",
-    "jogos vorazes",
+    { name: "Mountain Escape", type: "Resort" },
+    { name: "Urban Retreat", type: "Hotel" },
+    { name: "Sunset Paradise", type: "Resort" },
+    { name: "Forest Escape", type: "Cabin" },
+    { name: "Luxury Horizon", type: "Boutique Hotel" },
+    { name: "Nature's Nest", type: "Eco-Lodge" },
   ]);
 
   const filterItems = items.filter((item) =>
-    item.toLowerCase().includes(searchValue.toLowerCase(""))
+    item.type.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const handleChangeSearch = (event) => {
@@ -57,7 +57,10 @@ const Search = () => {
         <List>
           {filterItems.map((item, index) => (
             <ListItem key={index}>
-              <ListItemText primary={item} />
+              <ListItemText 
+              primary={item.name} 
+              secondary={`Type: ${item.type}`}
+              />
             </ListItem>
           ))}
         </List>
