@@ -33,7 +33,8 @@ const Search = () => {
 
     setIsLoading(true); // Mostra o estado de carregamento
     try {
-      const response = await fetch("https://back-end-w39w.onrender.com/hotels/by-type",
+      const response = await fetch(
+        "https://back-end-w39w.onrender.com/hotels/by-type",
         {
           method: "POST",
           headers: {

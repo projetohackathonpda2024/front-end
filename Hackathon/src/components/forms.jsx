@@ -1,4 +1,3 @@
-
 import { useForm } from "react-hook-form";
 import {
   TextField,
@@ -8,7 +7,6 @@ import {
   Container,
   Box,
 } from "@mui/material";
-import axios from "axios";
 
 const HotelForm = () => {
   const {
@@ -19,15 +17,27 @@ const HotelForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/hotelscreat",
-        data
+      const response = await fetch(
+        "https://back-end-w39w.onrender.com/hotelscreate",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
       );
+
+      if (!response.ok) {
+        throw new Error("Falha ao cadastrar hotel");
+      }
+
+      const result = await response.json();
       alert("Hotel cadastrado com sucesso!");
-      console.log(response.data);
+      console.log(result);
     } catch (error) {
       console.error(error);
-      alert("Deu certo!!!!");
+      alert("Deu errado ao cadastrar");
     }
   };
 
@@ -150,6 +160,21 @@ const HotelForm = () => {
             {/* CNPJ */}
             <Grid item xs={6}>
               <TextField label="CNPJ" fullWidth {...register("cnpj")} />
+            </Grid>
+
+            {/* Descrição */}
+            <Grid item xs={12}>
+              <TextField
+                label="Descrição"
+                multiline
+                rows={4}
+                fullWidth
+                {...register("description", {
+                  required: "Descrição é obrigatória",
+                })}
+                error={!!errors.description}
+                helperText={errors.description?.message}
+              />
             </Grid>
 
             {/* Botão de Submit */}
