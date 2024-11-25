@@ -60,6 +60,21 @@ const Header = () => {
             >
               Cadastrar Hotel
             </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              component={Link}
+              to="/"
+              sx={{
+                marginLeft: 2,
+                backgroundImage: "linear-gradient(to bottom,#267FFA, #009EFB)",  // Onfly-Colors-4-hex
+                "&:hover": {
+                backgroundImage: "linear-gradient(to bottom,#d53d0c, #FF5A05)",// Onfly-Colors-8-hex
+                },
+              }}
+            >
+              home
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>

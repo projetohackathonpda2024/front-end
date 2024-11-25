@@ -42,7 +42,13 @@ const Search = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ backgroundColor: "#f5f5f5", padding: 2 }}>
+      <Box sx={{ backgroundImage: "linear-gradient(to bottom, #FFFFFF,#F4F8FF)",
+         padding: 2 ,
+          alignItems: "center",
+           direction: "column"
+           }}
+           >
+         
         <TextField
           label="Search"
           variant="outlined"
@@ -53,8 +59,15 @@ const Search = () => {
             marginBottom: 2,
           }}
         />
-
-        <List>
+        <List sx={{ backgroundColor: "#a2d3da", 
+            padding: "1%" ,
+            margin: "center", 
+            alignItems: "center",
+            direction: "column",
+            borderRadius: "16px",
+           }}
+           
+           >
           {filterItems.map((item, index) => (
             <ListItem key={index}>
               <ListItemText 
@@ -64,8 +77,9 @@ const Search = () => {
             </ListItem>
           ))}
         </List>
+       
 
-        <Stack direction="row" spacing={2}>
+        <Stack direction="column" spacing={3}>
           <Button variant="contained" endIcon={<SendIcon />}>
             Send
           </Button>
